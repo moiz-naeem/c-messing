@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build C Project",
+      "type": "process",
+      "command": "gcc",
+      "args": [
+        "-g",
+        "-O0",
+        "-std=c99",
+        "-I", "include",
+        "src/main.c",
+        "-o", "build/main.exe"
+      ],
+      "problemMatcher": "$gcc",
+      "group": { "kind": "build", "isDefault": true },
+      "options": {
+        "env": {
+          "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+        }
+      }
+    }
+  ]
+}
