@@ -1,18 +1,25 @@
 #include <stdio.h>
 #include <inttypes.h>
-#include <math.h>>
+#include <math.h>
 
 
 
-int main(void){
-    float humidity(uint16_t reg){
-        double humidity_percent = ((double)reg / pow(2.0, 16.0)) * 100. 0 ; 
-        return float(humidity_percent);
+float temperature(uint16_t reg);
+float temperature(uint16_t reg){
+        uint16_t temp_bits = (reg >>2) & 0xffc;
+        printf("temp_Bit %d", temp_bits, "\n");
+        double temperature =  (double)(temp_bits * 0.03125);
+        return (float)temperature;
     }
-    printf("Initial C setup");
-    uint16_t arg = 0x8000;
-    float hum = humidity(arg);
-    printf("Humidity: %.2f %%\n", hum);
+/*
+int main(void){
+    
+    printf("Initial C setup\n");
+    uint16_t arg = 0b0011001000000000 ;
+    float temp = temperature(arg);
+    printf("\nHumidity: %.2f \n", temp);
     return 0;
 }
+    */
+    
 
